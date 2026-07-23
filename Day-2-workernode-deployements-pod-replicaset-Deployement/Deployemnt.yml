@@ -1,0 +1,38 @@
+# Kubernetes API version being used for this resource
+apiVersion: apps/v1
+# Type of Kubernetes resource - Deployment manages ReplicaSets and provides declarative updates
+kind: Deployment
+# Metadata section contains information about the Deployment
+metadata:
+  # Name of the Deployment
+  name: nginx-deployment
+# Specification section defines the desired state of the Deployment
+spec:
+  # Number of pod replicas to maintain
+  replicas: 3
+  # Selector used to identify which pods this Deployment manages
+  selector:
+    # Labels that must match for pods to be managed by this Deployment
+    matchLabels:
+      # Label key-value pair for matching pods
+      app: nginx
+  # Template for creating pods managed by this Deployment
+  template:
+    # Metadata for the pods created from this template
+    metadata:
+      # Labels applied to each pod created from this template
+      labels:
+        # Label indicating this pod runs an nginx application
+        app: nginx
+    # Specification for the pods
+    spec:
+      # List of containers in each pod
+      containers:
+      # First container definition
+      - name: nginx-container
+        # Docker image to use for this container
+        image: nginx:latest
+        # Ports exposed by this container
+        ports:
+        # Container listens on port 81
+        - containerPort: 81
