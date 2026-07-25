@@ -5,7 +5,7 @@ metadata:
   labels:
     app: swiggy-app
 spec:
-  replicas: 15
+  replicas: 6
   selector:
     matchLabels:
       app: swiggy-app
