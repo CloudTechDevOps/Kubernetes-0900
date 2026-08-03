@@ -300,6 +300,7 @@ Toleration  = Special Permission Pass
 
 ```bash
 kubectl taint nodes worker-node env=production:NoSchedule
+kubectl taint nodes worker-node env=production:NoExecute
 ```
 
 ---
